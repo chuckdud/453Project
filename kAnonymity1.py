@@ -150,10 +150,10 @@ pl.scatter(df[column_x], df[column_y])
 pl.show()
 
 def agg_categorical_column(series):
-    return [','.join(set(series))]
+    return pd.Series([','.join(set(series))])
 
 def agg_numerical_column(series):
-    return [series.mean()]
+    return pd.Series([series.mean()])
 
 def build_anonymized_dataset(df, partitions, feature_columns, sensitive_column, max_partitions=None):
     aggregations = {}
